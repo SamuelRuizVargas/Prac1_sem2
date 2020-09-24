@@ -11,9 +11,9 @@ int main()
         cout << "\n";
         opcion=0;
         cout << "Digite la opcion que desea ver."<<endl;
-            cout << "1 - Para ver punto #1"<<endl;
-            cout << "2 - Para ver punto #3"<<endl;
-            cout << "3 - Para ver punto #5"<<endl;
+            cout << "1 - Para ver punto #1 (Identificador de letras)"<<endl;
+            cout << "2 - Para ver punto #3 (Validador de fechas)"<<endl;
+            cout << "3 - Para ver punto #5 (Patron con numero impar)"<<endl;
             cout << "4 - Para ver punto #7"<<endl;
             cout << "5 - Para ver punto #8"<<endl;
             cout << "6 - Para ver punto #10"<<endl;
@@ -28,7 +28,9 @@ int main()
         char terminar;
         switch(opcion)
         {
+        //-----------------------------------------------------------------------------
         case 1:
+            //punto 1
             cout << "\n";
             cout << "----------------------------------------------------"<<endl;
             cout << "Identificador de letras."<<endl;
@@ -68,8 +70,210 @@ int main()
             cout << "----------------------------------------------------"<<endl;
 
             break;
-
+        //----------------------------------------------------------------------------
         case 2:
+            //punto 3
+            cout << "\n";
+            cout << "----------------------------------------------------"<<endl;
+            cout << "Validador de fechas."<<endl;
+            int mes;
+            int dia;
+            int variacion;
+            cout << "Ingrese un mes: ";cin>>mes;
+            if (mes>0 && mes<13)
+            {
+                cout<<"Ingrese un dia: ";cin>>dia;
+                if (mes==1 || mes==3 || mes==5 || mes==7 || mes==8 || mes==10 || mes==12)
+                {
+                    variacion=1;
+                }
+                else if (mes==4 || mes==6 || mes==9 || mes==11)
+                {
+                    variacion=2;
+                }
+                else
+                    variacion=3;
+
+                switch (variacion)
+                {
+                case 1:
+                    if (dia>0 && dia<32)
+                    {
+                        cout<<dia<<"/"<<mes<<" es una fecha valida."<<endl;
+                        cout << "----------------------------------------------------"<<endl;
+                    }
+                    else
+                    {
+                        cout<<dia<<"/"<<mes<<" es una fecha invalida."<<endl;
+                        cout << "----------------------------------------------------"<<endl;
+                    }
+
+                    break;
+
+                case 2:
+                    if (dia>0 && dia<31)
+                    {
+                        cout<<dia<<"/"<<mes<<" es una fecha valida."<<endl;
+                        cout << "----------------------------------------------------"<<endl;
+                    }
+                    else
+                    {
+                        cout<<dia<<"/"<<mes<<" es una fecha invalida."<<endl;
+                        cout << "----------------------------------------------------"<<endl;
+                    }
+                    break;
+
+                case 3:
+                    if (dia>0 && dia<29)
+                    {
+                        cout<<dia<<"/"<<mes<<" es una fecha valida."<<endl;
+                        cout << "----------------------------------------------------"<<endl;
+                    }
+                    else if(dia==29)
+                    {
+                        cout<<"Posiblemente anho bisiesto."<<endl;
+                        cout<<dia<<"/"<<mes<<" es valida es bisiesto."<<endl;
+                        cout << "----------------------------------------------------"<<endl;
+                    }
+                    else
+                    {
+                        cout<<dia<<"/"<<mes<<" es una fecha invalida."<<endl;
+                        cout << "----------------------------------------------------"<<endl;
+                    }
+                    break;
+                }
+            }
+            else
+            {
+                cout<<mes<<" es un mes invalido."<<endl;
+                cout << "----------------------------------------------------"<<endl;
+            }
+
+            cout<<"Digite cualquier caracter para continuar: ";cin>>terminar;
+            cout << "----------------------------------------------------"<<endl;
+
+            break;
+        //----------------------------------------------------------------------------
+        case 3:
+            //punto 5
+            cout << "\n";
+            cout << "----------------------------------------------------"<<endl;
+            cout << "Patron con numero impar."<<endl;
+            int esp;
+            int centro;
+            cout << "Ingrese el tamanho del patron(tiene que ser un numero impar): ";cin>>centro;
+            if(centro>0)
+            {
+                if(centro%2!=0)
+                {
+                    esp=centro/2;
+                    int esp_ini=esp;
+                    int stop=1;
+                    int esp_fin=esp;
+                    //parte de arriba
+                    for(int l=1; l<=esp; l+=1)
+                    {
+                        int ite_ini=1;
+                        while(ite_ini<=esp_ini)
+                        {
+                            cout<<" ";
+                            ite_ini+=1;
+                        }
+                        esp_ini-=1;
+
+                        int ast_ini=1;
+                        while(ast_ini<=stop)
+                        {
+                            cout<<"*";
+                            ast_ini+=1;
+                        }
+                        stop+=2;
+                        cout<<endl;
+                    }
+
+                    //centro
+                    int ite_cen=1;
+                    while (ite_cen<=centro)
+                    {
+                        cout<<"*";
+                        ite_cen+=1;
+                    }
+                    cout<<endl;
+
+                    //parte de abajo
+                    int ite_ini=esp;
+                    int ast_fin=stop-2;
+                    for(int p=1; p<=esp; p+=1)
+                    {
+
+                        while(ite_ini<=esp_fin)
+                        {
+                            cout<<" ";
+                            ite_ini+=1;
+                        }
+                        ite_ini-=1;
+                        ite_ini-=p;
+
+
+                        while(ast_fin>0)
+                        {
+                            cout<<"*";
+                            ast_fin-=1;
+
+                        }
+                        ast_fin=stop-2;
+                        ast_fin-=2*p;
+                        cout<<endl;
+                    }
+
+                }
+                else
+                {
+                    cout<<"El numero debe ser impar."<<endl;
+                    cout << "----------------------------------------------------"<<endl;
+                }
+
+            }
+            else
+            {
+
+                cout<<"El centro debe tener una longitud mayor a 0."<<endl;
+                cout << "----------------------------------------------------"<<endl;
+            }
+
+
+
+            cout<<"Digite cualquier caracter para continuar: ";cin>>terminar;
+            cout << "----------------------------------------------------"<<endl;
+
+            break;
+        //----------------------------------------------------------------------------
+        case 4:
+            //punto 7
+            break;
+        //----------------------------------------------------------------------------
+        case 5:
+            //punto 8
+            break;
+        //----------------------------------------------------------------------------
+        case 6:
+            //punto 10
+            break;
+        //----------------------------------------------------------------------------
+        case 7:
+            //punto 12
+            break;
+        //----------------------------------------------------------------------------
+        case 8:
+            //punto 13
+            break;
+        //----------------------------------------------------------------------------
+        case 9:
+            //punto 15
+            break;
+        //----------------------------------------------------------------------------
+        case 10:
+            //punto 17
             break;
         }
     }
