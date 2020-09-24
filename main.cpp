@@ -14,8 +14,8 @@ int main()
             cout << "1 - Para ver punto #1 (Identificador de letras)"<<endl;
             cout << "2 - Para ver punto #3 (Validador de fechas)"<<endl;
             cout << "3 - Para ver punto #5 (Patron con numero impar)"<<endl;
-            cout << "4 - Para ver punto #7"<<endl;
-            cout << "5 - Para ver punto #8"<<endl;
+            cout << "4 - Para ver punto #7 (Serie Fibonacci pares)"<<endl;
+            cout << "5 - Para ver punto #8 (Suma de multiplos de 2 numeros hasta un tercero)"<<endl;
             cout << "6 - Para ver punto #10"<<endl;
             cout << "7 - Para ver punto #12"<<endl;
             cout << "8 - Para ver punto #13"<<endl;
@@ -29,8 +29,8 @@ int main()
         switch(opcion)
         {
         //-----------------------------------------------------------------------------
-        case 1:
-            //punto 1
+        case 1: //punto 1
+        {
             cout << "\n";
             cout << "----------------------------------------------------"<<endl;
             cout << "Identificador de letras."<<endl;
@@ -68,11 +68,11 @@ int main()
 
             cout<<"Digite cualquier caracter para continuar: ";cin>>terminar;
             cout << "----------------------------------------------------"<<endl;
-
+        }
             break;
         //----------------------------------------------------------------------------
-        case 2:
-            //punto 3
+        case 2://punto 3
+        {
             cout << "\n";
             cout << "----------------------------------------------------"<<endl;
             cout << "Validador de fechas."<<endl;
@@ -151,11 +151,11 @@ int main()
 
             cout<<"Digite cualquier caracter para continuar: ";cin>>terminar;
             cout << "----------------------------------------------------"<<endl;
-
+        }
             break;
         //----------------------------------------------------------------------------
-        case 3:
-            //punto 5
+        case 3://punto 5
+        {
             cout << "\n";
             cout << "----------------------------------------------------"<<endl;
             cout << "Patron con numero impar."<<endl;
@@ -245,35 +245,132 @@ int main()
 
             cout<<"Digite cualquier caracter para continuar: ";cin>>terminar;
             cout << "----------------------------------------------------"<<endl;
+        }
+            break;
+        //----------------------------------------------------------------------------
+        case 4://punto 7
+        {
+            cout << "\n";
+            cout << "----------------------------------------------------"<<endl;
+            cout << "Serie Fibonacci pares."<<endl;
+            int num;
+            int sum=1;
+            int aux=0;
+            int total=0;
+            int primero;
+            int anterior;
+            cout<<"Ingrese un numero: ";cin>>num;
+            while(total<num)
+            {
+                primero=sum;
+                anterior=aux;
+                sum=primero+anterior;
+                aux=primero;
+                if (primero%2==0)
+                {
+                    total=total+primero;
+                }
 
+            }
+
+            cout<<"El resultado de la suma es: "<<total<<endl;
+            cout << "----------------------------------------------------"<<endl;
+
+            cout<<"Digite cualquier caracter para continuar: ";cin>>terminar;
+            cout << "----------------------------------------------------"<<endl;
+        }
             break;
         //----------------------------------------------------------------------------
-        case 4:
-            //punto 7
+        case 5://punto 8
+        {
+            cout << "\n";
+            cout << "----------------------------------------------------"<<endl;
+            cout << "Suma de multiplos de 2 numeros hasta un tercero."<<endl;
+            int a;
+            int b;
+            int c;
+            cout<<"Digite el primer numero: ";cin>>a;
+            cout<<"Digite el segundo numero: ";cin>>b;
+            cout<<"Digite el numero limite para los multiplos del num 1 y 2: ";cin>>c;
+            int lim=0;
+            int ite=1;
+            int suma=0;
+            while (lim<c)
+            {
+                lim=a*ite;
+                if (lim<c)
+                {
+                    suma+=lim;
+                    cout<<lim;
+                    if (a*(ite+1)<c)
+                    {
+                        cout<<" + ";
+                    }
+                    else if (a*(ite+1)>c)
+                    {
+                        cout<<" + ";
+                    }
+                }
+                ite+=1;
+            }
+            lim=0;
+            ite=1;
+            while (lim<c)
+            {
+                lim=b*ite;
+                if (lim<c)
+                {
+                    if(lim%a!=0)
+                    {
+                        suma+=lim;
+                        cout<<lim;
+                        if (b*(ite+1)<c)
+                        {
+                            if ((b*(ite+1))%a==0)
+                            {
+                                cout<<"";
+                            }
+                            else
+                            {
+                                cout<<" + ";
+                            }
+                        }
+                    }
+                }
+                ite+=1;
+            }
+
+            cout<<" = "<<suma<<endl;
+
+            cout<<"Digite cualquier caracter para continuar: ";cin>>terminar;
+            cout << "----------------------------------------------------"<<endl;
+
+        }
             break;
         //----------------------------------------------------------------------------
-        case 5:
-            //punto 8
+        case 6://punto 10
+        {
+        }
             break;
         //----------------------------------------------------------------------------
-        case 6:
-            //punto 10
+        case 7://punto 12
+        {
+        }
             break;
         //----------------------------------------------------------------------------
-        case 7:
-            //punto 12
+        case 8://punto 13
+        {
+        }
             break;
         //----------------------------------------------------------------------------
-        case 8:
-            //punto 13
+        case 9://punto 15
+        {
+        }
             break;
         //----------------------------------------------------------------------------
-        case 9:
-            //punto 15
-            break;
-        //----------------------------------------------------------------------------
-        case 10:
-            //punto 17
+        case 10://punto 17
+        {
+        }
             break;
         }
     }
