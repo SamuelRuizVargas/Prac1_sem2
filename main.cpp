@@ -16,9 +16,9 @@ int main()
             cout << "3 - Para ver punto #5 (Patron con numero impar)"<<endl;
             cout << "4 - Para ver punto #7 (Serie Fibonacci pares)"<<endl;
             cout << "5 - Para ver punto #8 (Suma de multiplos de 2 numeros hasta un tercero)"<<endl;
-            cout << "6 - Para ver punto #10"<<endl;
-            cout << "7 - Para ver punto #12"<<endl;
-            cout << "8 - Para ver punto #13"<<endl;
+            cout << "6 - Para ver punto #10 (N-simo numero primo)"<<endl;
+            cout << "7 - Para ver punto #12 (Maximo factor primo)"<<endl;
+            cout << "8 - Para ver punto #13 (Suma de primos)"<<endl;
             cout << "9 - Para ver punto #15"<<endl;
             cout << "10 - Para ver punto #17"<<endl;
             cout << "0 - Para cerrar el programa"<<endl;
@@ -260,22 +260,28 @@ int main()
             int primero;
             int anterior;
             cout<<"Ingrese un numero: ";cin>>num;
-            while(total<num)
+            if (num>0)
             {
-                primero=sum;
-                anterior=aux;
-                sum=primero+anterior;
-                aux=primero;
-                if (primero%2==0)
+                while(total<num)
                 {
-                    total=total+primero;
+                    primero=sum;
+                    anterior=aux;
+                    sum=primero+anterior;
+                    aux=primero;
+                    if (primero%2==0)
+                    {
+                        total=total+primero;
+                    }
+
                 }
 
+                cout<<"El resultado de la suma es: "<<total<<endl;
+                cout << "----------------------------------------------------"<<endl;
             }
-
-            cout<<"El resultado de la suma es: "<<total<<endl;
-            cout << "----------------------------------------------------"<<endl;
-
+            else
+            {
+                cout<<"El numero ingresado debe ser mayor a 0."<<endl;
+            }
             cout<<"Digite cualquier caracter para continuar: ";cin>>terminar;
             cout << "----------------------------------------------------"<<endl;
         }
@@ -290,58 +296,78 @@ int main()
             int b;
             int c;
             cout<<"Digite el primer numero: ";cin>>a;
-            cout<<"Digite el segundo numero: ";cin>>b;
-            cout<<"Digite el numero limite para los multiplos del num 1 y 2: ";cin>>c;
-            int lim=0;
-            int ite=1;
-            int suma=0;
-            while (lim<c)
+            if(a>0)
             {
-                lim=a*ite;
-                if (lim<c)
+                cout<<"Digite el segundo numero: ";cin>>b;
+                if (b>0)
                 {
-                    suma+=lim;
-                    cout<<lim;
-                    if (a*(ite+1)<c)
+                    cout<<"Digite el numero limite para los multiplos del num 1 y 2: ";cin>>c;
+                    if (c>0)
                     {
-                        cout<<" + ";
-                    }
-                    else if (a*(ite+1)>c)
-                    {
-                        cout<<" + ";
-                    }
-                }
-                ite+=1;
-            }
-            lim=0;
-            ite=1;
-            while (lim<c)
-            {
-                lim=b*ite;
-                if (lim<c)
-                {
-                    if(lim%a!=0)
-                    {
-                        suma+=lim;
-                        cout<<lim;
-                        if (b*(ite+1)<c)
+                        int lim=0;
+                        int ite=1;
+                        int suma=0;
+                        while (lim<c)
                         {
-                            if ((b*(ite+1))%a==0)
+                            lim=a*ite;
+                            if (lim<c)
                             {
-                                cout<<"";
+                                suma+=lim;
+                                cout<<lim;
+                                if (a*(ite+1)<c)
+                                {
+                                    cout<<" + ";
+                                }
+                                else if (a*(ite+1)>c)
+                                {
+                                    cout<<" + ";
+                                }
                             }
-                            else
-                            {
-                                cout<<" + ";
-                            }
+                            ite+=1;
                         }
+                        lim=0;
+                        ite=1;
+                        while (lim<c)
+                        {
+                            lim=b*ite;
+                            if (lim<c)
+                            {
+                                if(lim%a!=0)
+                                {
+                                    suma+=lim;
+                                    cout<<lim;
+                                    if (b*(ite+1)<c)
+                                    {
+                                        if ((b*(ite+1))%a==0)
+                                        {
+                                            cout<<"";
+                                        }
+                                        else
+                                        {
+                                            cout<<" + ";
+                                        }
+                                    }
+                                }
+                            }
+                            ite+=1;
+                        }
+
+                        cout<<" = "<<suma<<endl;
+                    }
+                    else
+                    {
+                        cout<<"El limite debe ser mayor a 0."<<endl;
                     }
                 }
-                ite+=1;
+                else
+                {
+                    cout<<"El segundo numero debe ser mayor a 0."<<endl;
+                }
             }
-
-            cout<<" = "<<suma<<endl;
-
+            else
+            {
+                cout<<"El primer numero debe ser mayor a 0."<<endl;
+            }
             cout<<"Digite cualquier caracter para continuar: ";cin>>terminar;
             cout << "----------------------------------------------------"<<endl;
 
@@ -350,26 +376,152 @@ int main()
         //----------------------------------------------------------------------------
         case 6://punto 10
         {
+            cout << "\n";
+            cout << "----------------------------------------------------"<<endl;
+            cout << "N-simo numero primo."<<endl;
+            int n;
+            cout<<"Ingrese la posicion del numero primo que desea saber: ";cin>>n;
+            if (n>0)
+            {
+                int primo=0;
+                int num=1;
+                int cant_div;
+                while (primo<=n)
+                {
+                    num++;
+                    cant_div=0;
+                    for(int i=1;i<=num;i++)
+                    {
+                        if (num%i==0)
+                        {
+                            cant_div++;
+                        }
+                    }
+                    if (cant_div==2)
+                    {
+                        primo++;
+                        if(primo==n)
+                        {
+                            cout<<"El primo numero "<<n<<" es: "<<num<<endl;
+                        }
+                    }
+
+                }
+            }
+            else
+            {
+                cout<<"El numero ingresado debe ser mayor a 0."<<endl;
+            }
+            cout<<"Digite cualquier caracter para continuar: ";cin>>terminar;
+            cout << "----------------------------------------------------"<<endl;
         }
             break;
         //----------------------------------------------------------------------------
         case 7://punto 12
         {
+            cout << "\n";
+            cout << "----------------------------------------------------"<<endl;
+            cout << "Maximo factor primo."<<endl;
+            int num;
+            int primo;
+            int n=2;
+            int cant_div;
+            int mayor;
+            cout<<"Ingrese un numero: ";cin>>num;
+            if (num>0)
+            {
+                int NUM=num;
+                while(n<=num)
+                {
+                    cant_div=0;
+                    for(int i=1;i<=n;i++)
+                    {
+                        if(n%i==0)
+                        {
+                            cant_div++;
+                        }
+                    }
+                    if (cant_div==2)
+                    {
+                       primo=n;
+                       if (num%primo==0)
+                       {
+                           mayor=primo;
+                           num=num/primo;
+                       }
+                    }
+                    n++;
+                }
+                cout<<"El mayor factor primo de "<< NUM<< " es: "<<mayor<<endl;
+            }
+            else
+            {
+                cout<<"El numero debe ser mayor que 0."<<endl;
+            }
+            cout<<"Digite cualquier caracter para continuar: ";cin>>terminar;
+            cout << "----------------------------------------------------"<<endl;
         }
             break;
         //----------------------------------------------------------------------------
         case 8://punto 13
         {
+            cout << "\n";
+            cout << "----------------------------------------------------"<<endl;
+            cout << "Suma de primos."<<endl;
+            int num;
+            int cant_div;
+            int n=2;
+            int suma=0;
+            cout<<"Ingrese un numero: ";cin>>num;
+            if (num>0)
+            {
+                while(n<=num)
+                {
+                    cant_div=0;
+                    for(int i=1;i<=n;i++)
+                    {
+                        if(n%i==0)
+                        {
+                            cant_div++;
+                        }
+                    }
+                    if (cant_div==2)
+                    {
+                       suma=suma+n;
+                    }
+                    n++;
+                }
+                cout<<"El resultado de la suma es: "<< suma<<endl;
+            }
+            else
+            {
+                cout<<"El numero debe ser mayor que 0."<<endl;
+            }
+
+            cout<<"Digite cualquier caracter para continuar: ";cin>>terminar;
+            cout << "----------------------------------------------------"<<endl;
         }
             break;
         //----------------------------------------------------------------------------
         case 9://punto 15
         {
+            cout << "\n";
+            cout << "----------------------------------------------------"<<endl;
+            cout << "."<<endl;
+
+            cout<<"Digite cualquier caracter para continuar: ";cin>>terminar;
+            cout << "----------------------------------------------------"<<endl;
         }
             break;
         //----------------------------------------------------------------------------
         case 10://punto 17
         {
+            cout << "\n";
+            cout << "----------------------------------------------------"<<endl;
+            cout << "."<<endl;
+
+            cout<<"Digite cualquier caracter para continuar: ";cin>>terminar;
+            cout << "----------------------------------------------------"<<endl;
         }
             break;
         }
