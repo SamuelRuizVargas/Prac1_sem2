@@ -19,8 +19,8 @@ int main()
             cout << "6 - Para ver punto #10 (N-simo numero primo)"<<endl;
             cout << "7 - Para ver punto #12 (Maximo factor primo)"<<endl;
             cout << "8 - Para ver punto #13 (Suma de primos)"<<endl;
-            cout << "9 - Para ver punto #15"<<endl;
-            cout << "10 - Para ver punto #17"<<endl;
+            cout << "9 - Para ver punto #15 (Suma de las diagonales de la espiral)"<<endl;
+            cout << "10 - Para ver punto #17 (Numero triangular con mas de n divisores)"<<endl;
             cout << "0 - Para cerrar el programa"<<endl;
         cout << "\n";
         cout<<"Opcion: ";cin>>opcion;
@@ -507,7 +507,38 @@ int main()
         {
             cout << "\n";
             cout << "----------------------------------------------------"<<endl;
-            cout << "."<<endl;
+            cout << "Suma de las diagonales de la espiral."<<endl;
+            int num;
+            int suma=1;
+            cout<<"Ingrese el tamanho de la espiral nxn: ";cin>>num;
+            if(num>0)
+            {
+                if (num%2!=0)
+                {
+                    int ini=1;
+                    int aumento=2;
+                    int sumado;
+                    for(int i=0;i<num/2;i++)
+                    {
+                        for (int l=0;l<4;l++)
+                        {
+                            sumado=ini+aumento;
+                            suma=suma+sumado;
+                            ini=ini+aumento;
+                        }
+                        aumento+=2;
+                    }
+                    cout<<"En una espiral de "<<num<<"x"<<num<<", la suma es: "<<suma<<endl;
+                }
+                else
+                {
+                    cout<<"El numero debe ser impar."<<endl;
+                }
+            }
+            else
+            {
+                cout<<"El numero tiene que ser mayor a 0."<<endl;
+            }
 
             cout<<"Digite cualquier caracter para continuar: ";cin>>terminar;
             cout << "----------------------------------------------------"<<endl;
@@ -518,7 +549,33 @@ int main()
         {
             cout << "\n";
             cout << "----------------------------------------------------"<<endl;
-            cout << "."<<endl;
+            cout << "Numero triangular con mas de n divisores."<<endl;
+            int num;
+            int cant_div=0;
+            int ini=1;
+            int numero;
+            cout<<"Ingrese un numero: ";cin>>num;
+            if (num>-1)
+            {
+                while(cant_div<=num)
+                {
+                    cant_div=0;
+                    numero=ini*(ini+1)/2;
+                    for (int i=1;i<=numero;i++)
+                    {
+                        if (numero%i==0)
+                        {
+                            cant_div+=1;
+                        }
+                    }
+                    ini+=1;
+                }
+                cout<<"El numero es: "<<numero<<" que tiene "<<cant_div<<" divisor(es)."<<endl;
+            }
+            else
+            {
+                cout<<"El numero debe ser mayor o igual a 0."<<endl;
+            }
 
             cout<<"Digite cualquier caracter para continuar: ";cin>>terminar;
             cout << "----------------------------------------------------"<<endl;
