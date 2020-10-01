@@ -318,10 +318,6 @@ int main()
                                 {
                                     cout<<" + ";
                                 }
-                                else if (a*(ite+1)>c)
-                                {
-                                    cout<<" + ";
-                                }
                             }
                             ite+=1;
                         }
@@ -335,7 +331,16 @@ int main()
                                 if(lim%a!=0)
                                 {
                                     suma+=lim;
-                                    cout<<lim;
+                                    if (ite==1)
+                                    {
+                                        cout<<" + "<<lim;
+                                    }
+                                    else
+                                    {
+                                      cout<<lim;
+                                    }
+
+
                                     if (b*(ite+1)<c)
                                     {
                                         if ((b*(ite+1))%a==0)
