@@ -6,6 +6,7 @@ int main()
 {
     cout << "Practica 1 - Samuel Ruiz Vargas - CC: 1000898936"<<endl;
     int opcion=1;
+    char terminar;
     while(opcion!=0)
     {
         cout << "\n";
@@ -25,7 +26,7 @@ int main()
         cout << "\n";
         cout<<"Opcion: ";cin>>opcion;
 
-        char terminar;
+
         switch(opcion)
         {
         //-----------------------------------------------------------------------------
@@ -346,6 +347,17 @@ int main()
                                         if ((b*(ite+1))%a==0)
                                         {
                                             cout<<"";
+                                            if (b*(ite+2)<c)
+                                            {
+                                                if ((b*(ite+2))%a==0)
+                                                {
+                                                    cout<<"";
+                                                }
+                                                else
+                                                {
+                                                    cout<<" + ";
+                                                }
+                                            }
                                         }
                                         else
                                         {
